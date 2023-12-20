@@ -2,7 +2,6 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const { v4: uuidv4 } = require("uuid");
-
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -33,9 +32,7 @@ app.get("/users", (req, res) => {
 
 app.get("/users/:id", (req, res) => {
   const { id } = req.params;
-
   const user = users.find((u) => u.id == id);
-
   if (!user) {
     res.json({ status: false, message: "User Not Found" });
   }
